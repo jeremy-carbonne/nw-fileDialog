@@ -42,9 +42,11 @@ angular.module('DWand.nw-fileDialog', [])
     callDialog(dialog, callback);
   };
   
-  dialogs.openDir = function(callback) {
+  dialogs.openDir = function(callback, path) {
     var dialog = document.createElement('input');
     dialog.type = 'file';
+    if (path != undefined)
+      dialog.setAttribute("nwworkingdir", path)
     dialog.nwdirectory = 'nwdirectory';
     callDialog(dialog, callback);
   };
